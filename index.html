@@ -1,133 +1,207 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- <meta http-equiv="refresh" content="2; url=login/login_cover.php"> -->
-	<title>FUKU-SHOUT</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js">
-	<style>
-		body.bg {
-			position: relative;
-			width: 100%;
-			min-height: 100vh;
-			background-size: cover;
-			background-position: center;
-			overflow-y: scroll;
-			-ms-overflow-style: none;
-			/* IE, Edge 対応 */
-			scrollbar-width: none;
-			/* Firefox 対応 */
-		}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js">
+    <style>
+        /* body {
+			background: #1fa2ff;
+			/* fallback for old browsers */
+        /* background: -webkit-linear-gradient(to right, #1fa2ff, #12d8fa, #a6ffcb); */
+        /* Chrome 10-25, Safari 5.1-6 */
+        /* background: linear-gradient(to right, #1fa2ff, #12d8fa, #a6ffcb); */
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        /* } */
 
-		.bg::-webkit-scrollbar {
-			display: none;
-		}
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
 
-		.title {
-			padding: 10%;
-			font-family: 'Fredoka One', cursive;
-			font-size: 100px;
-			font-weight: bolder;
-			color: #fdb933;
-			text-shadow: 0 0 13px #666;
-			transform: rotate(-9deg);
-			-moz-transform: rotate(-9deg);
-			-webkit-transform: rotate(-9deg);
-			width: 40%;
-		}
+        body {
+            background: -moz-linear-gradient(top right, #94ffe8, #3498db, #08009c);
+            background: -webkit-linear-gradient(top right, #94ffe8, #3498db, #08009c);
+            background: linear-gradient(to bottom left, #94ffe8, #3498db, #08009c);
+        }
 
-		.wrap {
-			display: flex;
-			justify-content: center;
-			align-items: flex-end;
-		}
+        .bubble {
+            position: absolute;
+            border-radius: 100%;
+            border: 1px solid #fff;
+            bottom: 1px;
+        }
 
-		.image {
-			width: 60%;
-		}
+        .title {
+            padding: 10%;
+            font-family: 'Fredoka One', cursive;
+            font-size: 100px;
+            font-weight: bolder;
+            color: #fdb933;
+            text-shadow: 0 0 13px #666;
+            transform: rotate(-9deg);
+            -moz-transform: rotate(-9deg);
+            -webkit-transform: rotate(-9deg);
+            width: 40%;
+        }
 
-		.fuku {
-			animation: fuwafuwa 2s infinite ease-in-out;
-		}
+        .wrap {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
 
-		@keyframes fuwafuwa {
-			0% {
-				transform: translate(0, 0);
-			}
+        .image {
+            width: 60%;
+        }
 
-			50% {
-				transform: translate(0, -20px);
-			}
+        .fuku {
+            animation: fuwafuwa 2s infinite ease-in-out;
+        }
 
-			100% {
-				transform: translate(0, 0);
-			}
-		}
+        @keyframes fuwafuwa {
+            0% {
+                transform: translate(0, 0);
+            }
 
-		ul {
-			list-style: none;
-		}
-	</style>
+            50% {
+                transform: translate(0, -20px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .btn,
+        a.btn,
+        button.btn {
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 1.5;
+            position: relative;
+            display: inline-block;
+            padding: 1rem 4rem;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+            text-align: center;
+            vertical-align: middle;
+            text-decoration: none;
+            letter-spacing: 0.1em;
+            color: #212529;
+            border-radius: 0.5rem;
+            position: fixed;
+            right: 300px;
+            top: 400px;
+        }
+
+        /* button yellow  */
+        a.btn--yellow {
+            color: #000;
+            background-color: #fff100;
+            border-bottom: 5px solid #ccc100;
+        }
+
+        a.btn--yellow:hover {
+            margin-top: 3px;
+            color: #000;
+            background: #fff20a;
+            border-bottom: 2px solid #ccc100;
+        }
+
+        /* button purple */
+        a.btn--purple {
+            color: #000;
+            background-color: #ff00ddea;
+            border-bottom: 5px solid #fa75e8ea;
+        }
+
+        a.btn--purple:hover {
+            margin-top: 3px;
+            color: #000;
+            background: #d10eb7dc;
+            border-bottom: 2px solid #fa75e8ea;
+        }
+    </style>
 </head>
 
 <body class="bg" id="bg">
-	<div class="wrap">
-		<div>
-			<div class="title">
-				FUKU<br>SHOUT<br>GAME
-			</div>
-			<div>
-				<div class="ui inverted segment">
-					<button class="ui inverted teal button" type=“button”
-						onclick="location.href='shout.html'">start</button>
-				</div>
-			</div>
-		</div>
-		<div class="image">
-			<ul>
-				<li><img id="pic" src="img/fuku.png" class="fuku"></li>
-			</ul>
-		</div>
-	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="Shards-master/shards.js"></script>
-	<script>
-		$(function () {
-			$('#bg').shards(
-				[10, 35, 180, .15],
-				[255, 20, 220, .25],
-				[0, 0, 0, .25],
-				20,
-				.58,
-				2,
-				.15,
-				true
-			);
-		});
+    <div class="wrap">
+        <div>
+            <div class="title">
+                FUKU<br>SHOUT<br>GAME
+            </div>
+            <div>
+                <div class="ui inverted segment">
+                    <button class="btn btn--purple btn--cubic" type=“button”
+                        onclick="location.href='shout.html'">start</button>
+                </div>
+            </div>
+        </div>
+        <div class="image">
+            <ul>
+                <li><img id="pic" src="img/fuku.png" class="fuku"></li>
+            </ul>
+        </div>
+    </div>
+</body>
+<!-- <img src="img/fuku.png"></img> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    jQuery(document).ready(function ($) {
+        var bArray = [];
+        //泡のサイズの配列
+        var sArray = [6, 8, 10, 12];
 
+        //泡が出る幅の範囲計算
+        for (var i = 0; i < $('body').width(); i++) {
+            bArray.push(i);
+        }
 
-		const img = ["img/fuku.png", "img/fukuface.png"];
+        //配列からランダムに値を出す関数
+        function randomValue(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
 
-		let count = -1;
+        setInterval(function () {
+            //泡のサイズをランダムに選定
+            var size = randomValue(sArray);
 
-		picChange();
+            //body内のランダムな場所に泡を配置
+            $('body').append(
+                '<div class="bubble" style="left: ' + randomValue(bArray) + 'px; width: ' + size + 'px; height: ' + size + 'px; "></div>'
+            );
 
-		function picChange() {
+            //5秒かけて下から上に泡が上るようにし、不透明度を下げる。上まで上った泡は取り除く
+            $('.bubble').animate({
+                'bottom': '100%',
+                'opacity': '-=0.7'
+            }, 5000, function () {
+                $(this).remove()
+            });
 
-			count++;
-			// カウントが最大になれば初期値に戻す
-			if (count == img.length) count = 0;
-			//画像選択
-			pic.src = img[count];
-			//1秒ごとに実行
-			setTimeout("picChange()", 1200);
-		}
-	</script>
+            //0.35秒ごとに泡を発生させる
+        }, 350);
+
+    });
+</script>
 </body>
 
 </html>

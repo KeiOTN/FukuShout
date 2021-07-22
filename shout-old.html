@@ -7,35 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        /* body {
-			background: #1fa2ff;
-			/* fallback for old browsers */
-        /* background: -webkit-linear-gradient(to right, #1fa2ff, #12d8fa, #a6ffcb); */
-        /* Chrome 10-25, Safari 5.1-6 */
-        /* background: linear-gradient(to right, #1fa2ff, #12d8fa, #a6ffcb); */
-        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        /* } */
-
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-        }
-
-        body {
-            background: -moz-linear-gradient(top right, #94ffe8, #3498db, #08009c);
-            background: -webkit-linear-gradient(top right, #94ffe8, #3498db, #08009c);
-            background: linear-gradient(to bottom left, #94ffe8, #3498db, #08009c);
-        }
-
-        .bubble {
-            position: absolute;
-            border-radius: 100%;
-            border: 1px solid #fff;
-            bottom: 1px;
-        }
-
         #vol_effect {
             background: rgb(0, 204, 255);
             text-align: right;
@@ -50,11 +21,15 @@
             justify-content: center;
 
         }
+
+        /* .fugu-img {
+            position: fixed;
+            left: 200px;
+        } */
     </style>
 </head>
 
 <body class="bg" id="bg">
-    <!-- <img src="img/fuku.png"></img> -->
     <!-- 音量 -->
     <header>
         <p id='volume'></p>
@@ -66,47 +41,19 @@
             <img id="fugu-img" src="img/fugu1.jpeg" class="fugu-img" alt="">
         </div>
     </header>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- 文字起こし -->
+    <!-- <main> -->
+    <!-- <button>start</button> -->
+    <!-- <h1>google books API</h1> -->
+    <!-- <button id="btn">データ取得</button> -->
+    <!-- <div id="output"></div> -->
+    <!-- </main> -->
+    <!-- web speech api -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- axiosライブラリの読み込み -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="Shards-master/shards.js"></script>
     <script>
-        jQuery(document).ready(function ($) {
-            var bArray = [];
-            //泡のサイズの配列
-            var sArray = [6, 8, 10, 12];
-
-            //泡が出る幅の範囲計算
-            for (var i = 0; i < $('body').width(); i++) {
-                bArray.push(i);
-            }
-
-            //配列からランダムに値を出す関数
-            function randomValue(arr) {
-                return arr[Math.floor(Math.random() * arr.length)];
-            }
-
-            setInterval(function () {
-                //泡のサイズをランダムに選定
-                var size = randomValue(sArray);
-
-                //body内のランダムな場所に泡を配置
-                $('body').append(
-                    '<div class="bubble" style="left: ' + randomValue(bArray) + 'px; width: ' + size + 'px; height: ' + size + 'px; "></div>'
-                );
-
-                //5秒かけて下から上に泡が上るようにし、不透明度を下げる。上まで上った泡は取り除く
-                $('.bubble').animate({
-                    'bottom': '100%',
-                    'opacity': '-=0.7'
-                }, 5000, function () {
-                    $(this).remove()
-                });
-
-                //0.35秒ごとに泡を発生させる
-            }, 350);
-        });
-
-
         function audio_input() {
             window.AudioContext = window.AudioContext || window.webkitAudioContext;
             var context = new AudioContext();
@@ -214,10 +161,56 @@
             })();
         }
 
+        // 文字起こし
+        // 'use strict';
+        // {
+        //     const btn = document.querySelector('button');
+        //     const speech = new webkitSpeechRecognition();
+        //     speech.lang = 'ja-JP';
+        //     // speech.lang = 'en-US';
+        //     btn.addEventListener('click', () => {
+        //         // console.log('llll');
+        //         btn.sisabled = true;
+        //         speech.start();
+        //     });
+        //     let myboice;
+        //     speech.onresult = (e) => {
+        //         // console.log(e);
+        //         speech.stop();
+        //         if (e.results[0].isFinal) {
+        //             console.log(e.results[0][0].transcript);
+        //             document.body.style.background = e.results[0][0].transcript;
+        //             myboice = String(e.results[0][0].transcript);
+        //         }
+        //     };
+        //     speech.onend = () => {
+        //         speech.start();
+        //     };
+        //     speech.onsoundstart = () => {
+        //         btn.textContent = 'qrocessing....'
+        //     };
+        //     speech.onsoundend = () => {
+        //         btn.textContent = 'waitiong...'
+        //     };
+        // }
 
         // shout reload
         $('#stop').click(function () {
             window.location.reload();
+        });
+
+        // 背景
+        $(function () {
+            $('#bg').shards(
+                [10, 35, 180, .15],
+                [255, 20, 220, .25],
+                [0, 0, 0, .25],
+                20,
+                .58,
+                2,
+                .15,
+                true
+            );
         });
 
     </script>
